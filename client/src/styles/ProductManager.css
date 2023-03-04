@@ -1,0 +1,4 @@
+.ProductManager {
+    display: flex;
+    flex-direction: column;
+}
