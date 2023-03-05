@@ -1,6 +1,7 @@
 import axios from "axios";
 import "../styles/ProductManager.css";
 import { useState, useEffect } from "react";
+import TodosLosProductos from "./TodosLosProductos";
 
 const ProductManager = () => {
   const [formState, setFormState] = useState({
@@ -30,7 +31,8 @@ const ProductManager = () => {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        listaProductos();
         setFormState({
           titulo: "",
           precio: "",
@@ -46,9 +48,10 @@ const ProductManager = () => {
 
   const listarProductos = () => {
     axios
-      .get("http://localhost:8000/api/producto", { withCredentials: true })
+      .get("http://localhost:8000/api/productos", { withCredentials: true })
       .then((res) => {
         setlistaProductos(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -86,7 +89,7 @@ const ProductManager = () => {
         </p>
         <button> Crear </button>
       </form>
-      {/* <div>{{ listarProductos }}</div> */}
+      <TodosLosProductos listaProductos={listaProductos}></TodosLosProductos>
     </div>
   );
 };
