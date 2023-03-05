@@ -6,6 +6,16 @@ module.exports.crearNuevoProducto = (req, res) => {
     .catch((err) => res.json({ message: "Algo salió mal", error: err }));
 };
 
+module.exports.obtenerProducto = (req, res) => {
+  const _id = req.params._id;
+  Producto.findById(_id)
+    .exec()
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((error) => res.json(error));
+};
+
 module.exports.obtenerProductos = (req, res) => {
   Producto.find()
     .then((resultado) => {
