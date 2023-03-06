@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/TodosLosProductos.css";
 
 const TodosLosProductos = ({ listaProductos }) => {
   return (
@@ -10,6 +11,9 @@ const TodosLosProductos = ({ listaProductos }) => {
           return (
             <p key={index}>
               {producto.titulo}
+              <button className="boton"> Borrar</button>
+              <button className="boton"> Editar</button>
+
               <br />
               <Link
                 className="link"

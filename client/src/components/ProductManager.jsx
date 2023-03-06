@@ -1,6 +1,6 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/ProductManager.css";
-import { useState, useEffect } from "react";
 import TodosLosProductos from "./TodosLosProductos";
 
 const ProductManager = () => {
@@ -61,7 +61,7 @@ const ProductManager = () => {
       <h1> Product Manager </h1>
       <form className="ProductManager" onSubmit={crearProducto}>
         <p>
-          <label> Titulo </label>
+          <label> Titulo : </label>
           <input
             type="text"
             name="titulo"
@@ -70,7 +70,7 @@ const ProductManager = () => {
           />
         </p>
         <p>
-          <label> Precio </label>
+          <label> Precio : </label>
           <input
             type="number"
             name="precio"
@@ -79,7 +79,7 @@ const ProductManager = () => {
           />
         </p>
         <p>
-          <label> Descripción </label>
+          <label> Descripción : </label>
           <input
             type="text"
             name="descripcion"
