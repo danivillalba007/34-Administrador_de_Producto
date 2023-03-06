@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetalleProducto from "./components/DetalleProducto";
 import ProductManager from "./components/ProductManager";
-// import DetalleProducto from "./components/DetalleProducto";
 
 import "./App.css";
 
@@ -10,10 +10,10 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProductManager />}></Route>
-          {/* <Route
+          <Route
             path="/producto/detalle/:id"
             element={<DetalleProducto />}
-          ></Route> */}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
