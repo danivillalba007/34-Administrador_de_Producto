@@ -1,7 +1,24 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/TodosLosProductos.css";
 
 const TodosLosProductos = ({ listaProductos }) => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const handleClickBorrar = (id) => {
+    axios
+      .delete("http://localhost:8000/api/producto/delete/" + id)
+      .then((res) => {
+        navigate("/");
+      }) //console.log(res))
+      .catch((error) => console.log(error));
+  };
+
+  const handleClickEditar = () => {
+    navigate("/producto/editar/" + id);
+  };
+
   return (
     <>
       <h2>Todos los Productos</h2>
@@ -11,8 +28,18 @@ const TodosLosProductos = ({ listaProductos }) => {
           return (
             <p key={index}>
               {producto.titulo}
-              <button className="boton"> Borrar</button>
-              <button className="boton"> Editar</button>
+              <button
+                className="boton"
+                onClick={() => handleClickBorrar(producto._id)}
+              >
+                Borrar
+              </button>
+              <button
+                className="boton"
+                onClick={() => handleClickEditar(producto._id)}
+              >
+                Editar
+              </button>
 
               <br />
               <Link
