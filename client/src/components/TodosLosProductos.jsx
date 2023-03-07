@@ -15,7 +15,7 @@ const TodosLosProductos = ({ listaProductos }) => {
       .catch((error) => console.log(error));
   };
 
-  const handleClickEditar = () => {
+  const handleClickEditar = (id) => {
     navigate("/producto/editar/" + id);
   };
 
