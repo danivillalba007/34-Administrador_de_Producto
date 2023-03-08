@@ -42,7 +42,6 @@ const EditarProducto = () => {
     axios
       .get("http://localhost:8000/api/producto/detalle/" + id)
       .then((res) => {
-        console.log(res.data.titulo);
         setFormState(res.data);
       })
       .catch((err) => console.log(err));
