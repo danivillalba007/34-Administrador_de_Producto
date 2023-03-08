@@ -10,4 +10,6 @@ module.exports = (app) => {
   app.put("/api/producto/update/:_id", ProductoController.actualizarProducto);
 
   app.delete("/api/producto/delete/:_id", ProductoController.eliminarProducto);
+
+  app.put("/api/producto/update/:_id", ProductoController.actualizarProducto);
 };

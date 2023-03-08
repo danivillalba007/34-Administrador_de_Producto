@@ -37,3 +37,11 @@ module.exports.eliminarProducto = (req, res) => {
     .then((resultado) => res.json(resultado))
     .catch((error) => res.json(error));
 };
+
+module.exports.actualizarProducto = (req, res) => {
+  const _id = req.params._id;
+  console.log(req.body);
+  Producto.updateOne({ _id: _id }, req.body, { runValidators: true })
+    .then((resultado) => res.json(resultado))
+    .catch((error) => res.status(400).json(error));
+};
