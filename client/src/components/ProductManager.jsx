@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/ProductManager.css";
 import TodosLosProductos from "./TodosLosProductos";
 
 const ProductManager = () => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     titulo: "",
     precio: "",
@@ -32,12 +34,13 @@ const ProductManager = () => {
       })
       .then((res) => {
         // console.log(res);
-        listaProductos();
+        listarProductos();
         setFormState({
           titulo: "",
           precio: "",
           descripcion: "",
         });
+        // navigate("/");
       })
 
       .catch((err) => {
@@ -48,12 +51,14 @@ const ProductManager = () => {
 
   const listarProductos = () => {
     axios
-      .get("http://localhost:8000/api/productos", { withCredentials: true })
+      .get("http://localhost:8000/api/productos", {
+        withCredentials: true,
+      })
       .then((res) => {
         setlistaProductos(res.data);
         // console.log(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err, "Error de referencia"));
   };
 
   return (

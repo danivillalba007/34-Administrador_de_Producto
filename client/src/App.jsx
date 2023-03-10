@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DetalleProducto from "./components/DetalleProducto";
 import EditarProducto from "./components/EditarProducto";
+import Login from "./components/Login";
 import ProductManager from "./components/ProductManager";
 
 import "./App.css";
+import Registro from "./components/Registro";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
             path="/producto/editar/:id"
             element={<EditarProducto />}
           ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/registro/" element={<Registro />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -73,6 +73,7 @@ const EditarProducto = () => {
         <p>
           <label> Descripción : </label>
           <input
+            className="inputDescripcion"
             type="text"
             name="descripcion"
             onChange={onInputChange}
