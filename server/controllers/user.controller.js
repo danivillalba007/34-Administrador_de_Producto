@@ -27,7 +27,7 @@ module.exports = {
     const usuario = await Usuario.findOne({ email: req.body.email });
     console.log(" El usuario que intenta ingresar es:", usuario);
     if (!usuario) {
-      res.status(400).json({ error: "Email/Password incorrecto" });
+      res.status(401).json({ error: "Email/Password incorrecto" });
     }
     try {
       const passwordValida = await bcrypt.compare(
@@ -36,7 +36,7 @@ module.exports = {
       );
       console.log(passwordValida, " PASSWORD VALIDA");
       if (!passwordValida) {
-        res.status(400).json({ error: "Email/Password incorrecto" });
+        res.status(401).json({ error: "Email/Password incorrecto" });
       } else {
         const userToken = jwt.sign({ _id: usuario._id }, SECRET);
         res
@@ -48,7 +48,7 @@ module.exports = {
           .json({ successMessage: "usuario logueado" });
       }
     } catch (error) {
-      res.status(400).json({ error: "Email/Password incorrecto" });
+      res.status(401).json({ error: "Email/Password incorrecto" });
     }
   },
   logOutUser: (req, res) => {

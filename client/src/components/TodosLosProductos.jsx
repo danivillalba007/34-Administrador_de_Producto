@@ -10,7 +10,7 @@ const TodosLosProductos = ({ listaProductos }) => {
     axios
       .delete("http://localhost:8000/api/producto/delete/" + id)
       .then((res) => {
-        navigate("/");
+        navigate("/producto");
       }) //console.log(res))
       .catch((error) => console.log(error));
   };

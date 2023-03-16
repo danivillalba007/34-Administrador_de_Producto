@@ -8,7 +8,7 @@ module.exports = (app) => {
     ProductoController.crearNuevoProducto
   );
 
-  app.get("/api/productos", ProductoController.obtenerProductos);
+  app.get("/api/productos", authenticate, ProductoController.obtenerProductos);
 
   app.get(
     "/api/producto/detalle/:_id",

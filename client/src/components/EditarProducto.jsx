@@ -28,10 +28,12 @@ const EditarProducto = () => {
     e.preventDefault();
 
     axios
-      .put("http://localhost:8000/api/producto/update/" + id, formState)
+      .put("http://localhost:8000/api/producto/update/" + id, formState, {
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res);
-        // navigate("/");
+        navigate("/productos");
       })
       .catch((err) => {
         // setErrores(err.response.data.errors);
@@ -40,7 +42,9 @@ const EditarProducto = () => {
 
   const listarProductoPorID = () => {
     axios
-      .get("http://localhost:8000/api/producto/detalle/" + id)
+      .get("http://localhost:8000/api/producto/detalle/" + id, {
+        withCredentials: true,
+      })
       .then((res) => {
         setFormState(res.data);
       })

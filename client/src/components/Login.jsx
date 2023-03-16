@@ -22,7 +22,7 @@ function LoginForm() {
       )
       .then((res) => {
         console.log(res);
-        navigate("/");
+        navigate("/producto");
       })
       .catch((err) => {
         console.log(err);

@@ -40,7 +40,7 @@ const ProductManager = () => {
           precio: "",
           descripcion: "",
         });
-        // navigate("/");
+        navigate("/producto");
       })
 
       .catch((err) => {
@@ -60,10 +60,23 @@ const ProductManager = () => {
       })
       .catch((err) => console.log(err, "Error de referencia"));
   };
+  function handleLogout() {
+    axios
+      .get("http://localhost:8000/api/logout", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/");
+      })
+      .catch((err) => console.log(err, "Error de referencia"));
+  }
 
   return (
     <div>
-      <h1> Product Manager </h1>
+      <h1>
+        Control de stock <button onClick={handleLogout}>Logout</button>
+      </h1>
       <form className="ProductManager" onSubmit={crearProducto}>
         <p>
           <label> Titulo : </label>

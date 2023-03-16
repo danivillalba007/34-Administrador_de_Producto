@@ -12,7 +12,8 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProductManager />}></Route>
+          <Route path="/producto" element={<ProductManager />}></Route>
+
           <Route
             path="/producto/detalle/:id"
             element={<DetalleProducto />}
@@ -21,7 +22,7 @@ const App = () => {
             path="/producto/editar/:id"
             element={<EditarProducto />}
           ></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/" element={<Login />}></Route>
           <Route path="/registro/" element={<Registro />}></Route>
         </Routes>
       </BrowserRouter>
