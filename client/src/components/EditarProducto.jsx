@@ -1,18 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/ProductManager.css";
 
 const EditarProducto = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [formState, setFormState] = useState({
     titulo: "",
-    precio: "",
+    cantidad: "",
     descripcion: "",
   });
 
-  const { titulo, precio, descripcion } = formState;
+  const { titulo, cantidad, descripcion } = formState;
 
   useEffect(() => listarProductoPorID(), []);
 
@@ -33,7 +34,7 @@ const EditarProducto = () => {
       })
       .then((res) => {
         console.log(res);
-        navigate("/productos");
+        navigate("/producto");
       })
       .catch((err) => {
         // setErrores(err.response.data.errors);
@@ -66,12 +67,12 @@ const EditarProducto = () => {
           />
         </p>
         <p>
-          <label> Precio : </label>
+          <label> Cantidad : </label>
           <input
             type="number"
-            name="precio"
+            name="cantidad"
             onChange={onInputChange}
-            value={precio}
+            value={cantidad}
           />
         </p>
         <p>

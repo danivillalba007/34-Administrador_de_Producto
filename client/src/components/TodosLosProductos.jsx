@@ -8,7 +8,9 @@ const TodosLosProductos = ({ listaProductos }) => {
 
   const handleClickBorrar = (id) => {
     axios
-      .delete("http://localhost:8000/api/producto/delete/" + id)
+      .delete("http://localhost:8000/api/producto/delete/" + id, {
+        withCredentials: true,
+      })
       .then((res) => {
         navigate("/producto");
       }) //console.log(res))

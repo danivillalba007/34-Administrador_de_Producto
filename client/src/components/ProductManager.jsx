@@ -8,11 +8,11 @@ const ProductManager = () => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     titulo: "",
-    precio: "",
+    cantidad: "",
     descripcion: "",
   });
 
-  const { titulo, precio, descripcion } = formState;
+  const { titulo, cantidad, descripcion } = formState;
   const [listaProductos, setlistaProductos] = useState([]);
 
   useEffect(() => listarProductos(), []);
@@ -37,7 +37,7 @@ const ProductManager = () => {
         listarProductos();
         setFormState({
           titulo: "",
-          precio: "",
+          cantidad: "",
           descripcion: "",
         });
         navigate("/producto");
@@ -79,7 +79,7 @@ const ProductManager = () => {
       </h1>
       <form className="ProductManager" onSubmit={crearProducto}>
         <p>
-          <label> Titulo : </label>
+          <label> Producto : </label>
           <input
             type="text"
             name="titulo"
@@ -88,12 +88,12 @@ const ProductManager = () => {
           />
         </p>
         <p>
-          <label> Precio : </label>
+          <label> Cantidad : </label>
           <input
             type="number"
-            name="precio"
+            name="cantidad"
             onChange={onInputChange}
-            value={precio}
+            value={cantidad}
           />
         </p>
         <p>

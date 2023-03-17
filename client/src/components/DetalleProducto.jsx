@@ -5,13 +5,15 @@ import { useParams } from "react-router-dom";
 const DetalleProducto = () => {
   const [detalleProducto, setDetalleProducto] = useState([]);
   const { id } = useParams();
-  const { titulo, descripcion, precio } = detalleProducto;
+  const { titulo, descripcion, cantidad } = detalleProducto;
 
   useEffect(() => listarDetallesProducto(), []);
 
   const listarDetallesProducto = () => {
     axios
-      .get("http://localhost:8000/api/producto/detalle/" + id)
+      .get("http://localhost:8000/api/producto/detalle/" + id, {
+        withCredentials: true,
+      })
       .then((res) => {
         setDetalleProducto(res.data);
       })
@@ -22,7 +24,7 @@ const DetalleProducto = () => {
     <>
       <h2>Detalles del Producto</h2>
       <p> {titulo} </p>
-      <p> Precio: {precio} </p>
+      <p> Cantidad: {cantidad} </p>
       <p> Descripción: {descripcion} </p>
     </>
   );

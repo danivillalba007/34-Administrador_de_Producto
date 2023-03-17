@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ProductoSchema = new mongoose.Schema({
   titulo: String,
-  precio: Number,
+  cantidad: Number,
   descripcion: String,
 });
 
